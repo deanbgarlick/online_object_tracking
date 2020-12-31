@@ -44,16 +44,21 @@ services:
     expose:
       - 8080
     ports:
+      - "8000:8000"
       - "8886:8888"
     volumes:
       - ./object_detection_microservice:/home/app/data
-  deep_sort_microservice:
-    build: ./deep_sort_microservice
-    container_name: deep_sort_microservice
-    restart: always
-    expose:
-      - 8080
-    ports:
-      - "8887:8888"
-    volumes:
-      - ./object_detection_microservice:/home/microservice/data
+    depends_on:
+      - kafka1
+  # deep_sort_microservice:
+  #   build: ./deep_sort_microservice
+  #   container_name: deep_sort_microservice
+  #   restart: always
+  #   expose:
+  #     - 8080
+  #   ports:
+  #     - "8887:8888"
+  #   volumes:
+  #     - ./object_detection_microservice:/home/microservice/data
+  #   depends_on:
+  #     - kafka1

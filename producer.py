@@ -1,3 +1,4 @@
+import base64
 import sys
 import time
 import cv2
@@ -22,6 +23,12 @@ def publish_video(video_file):
 
     print('publishing video...')
 
+    # while True:
+
+    #     producer.send(topic, bytes('Hello world', 'utf-8'))
+    #     time.sleep(0.2)
+
+
     while(video.isOpened()):
         success, frame = video.read()
 
@@ -31,10 +38,13 @@ def publish_video(video_file):
             break
 
         # Convert image to png
-        ret, buffer = cv2.imencode('.jpg', frame)
+        #ret, buffer = cv2.imencode('.jpg', frame)
 
         # Convert to bytes and send to kafka
-        producer.send(topic, buffer.tobytes())
+        # producer.send(topic, buffer.tobytes())
+
+        _, buffer = cv2.imencode('.png', frame)
+        producer.send(topic, base64.b64encode(buffer))
 
         time.sleep(0.2)
     video.release()
