@@ -43,7 +43,7 @@ def publish_video(video_file):
         # Convert to bytes and send to kafka
         # producer.send(topic, buffer.tobytes())
 
-        _, buffer = cv2.imencode('.png', frame)
+        _, buffer = cv2.imencode('.jpg', frame)
         producer.send(topic, base64.b64encode(buffer))
 
         time.sleep(0.2)
