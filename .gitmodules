@@ -2,5 +2,3 @@
 	path = deep_sort_microservice
 	url = https://github.com/deanbgarlick/deep_sort.git
 [submodule "object_detection_microservice"]
-	path = object_detection_microservice
-	url = https://github.com/deanbgarlick/CAMEL_object_tracking_dataset_detector.git
