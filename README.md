@@ -1,4 +1,6 @@
-To build this microservice pipleline for online object tracking in videos git clone this repo, cd into the repo, then run:
+This is a microservice based application for the online tracking of objects in videos using SSD, DeepSort, Kafka, Flask and Docker. 
+
+To use this appllication git clone this repo, cd into the repo, then run:
 
 ```
 docker-compose up -d --build
