@@ -8,7 +8,6 @@ import time
 import cv2
 import numpy as np
 import pandas as pd
-import torch
 
 from flask import Flask, Response
 from kafka import KafkaConsumer, KafkaProducer
